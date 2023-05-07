@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ball横移动画</title>
+    <style>
+        .ball {
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(34, 188, 206);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ball"></div>
+
+    <script>
+        var offsetX = 800//一共要水平移动的距离
+        var moveOffset = 0 //当前已经移动的距离
+        var step = 20 //每次移动的距离
+        var ball = document.querySelector('.ball')
+        console.log(ball.style)
+
+        function move() {
+            if (moveOffset < offsetX) {
+                ball.style.left = parseInt(getComputedStyle(ball).left) + step + 'px'
+                moveOffset += step
+            }
+            setTimeout(move, 80)
+        }
+        move()
+    </script>
+</body>
+
+</html>
