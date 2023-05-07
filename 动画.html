@@ -22,6 +22,22 @@
     <div class="ball"></div>
 
     <script>
+        //这里用的是setTimeout来实现动画的不推荐，js有个内置的动画实现方法叫requestAnimationFrame，推荐用
+        // var offsetX = 800//一共要水平移动的距离
+        // var moveOffset = 0 //当前已经移动的距离
+        // var step = 20 //每次移动的距离
+        // var ball = document.querySelector('.ball')
+        // console.log(ball.style)
+
+        // function move() {
+        //     if (moveOffset < offsetX) {
+        //         ball.style.left = parseInt(getComputedStyle(ball).left) + step + 'px'
+        //         moveOffset += step
+        //     }
+        //     setTimeout(move, 80)
+        // }
+        // move()
+
         var offsetX = 800//一共要水平移动的距离
         var moveOffset = 0 //当前已经移动的距离
         var step = 20 //每次移动的距离
@@ -33,7 +49,7 @@
                 ball.style.left = parseInt(getComputedStyle(ball).left) + step + 'px'
                 moveOffset += step
             }
-            setTimeout(move, 80)
+            requestAnimationFrame(move)
         }
         move()
     </script>
